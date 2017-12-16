@@ -1,0 +1,3 @@
+pokreni gornju ikonu i uloguj se.
+kada se ulogujes zatvori prezi i obrisi gornju ikonu.
+nastavi koristiti tako sto ces ulaziti preko donje ikone.

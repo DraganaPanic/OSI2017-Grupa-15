@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1511380431 source:c:\users\dobrovoljski\documents\spa\lab1\lab1-priprema\main.c
+	<stdio.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+

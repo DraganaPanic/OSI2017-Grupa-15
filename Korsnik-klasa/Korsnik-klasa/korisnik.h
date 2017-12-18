@@ -4,7 +4,7 @@
 #include <exception>
 #include <fstream>
 #include <cstdio>
-#include <list>
+#include <tuple>
 
 using namespace std;
 
@@ -13,12 +13,14 @@ class Korisnik
 	friend ostream &operator<<(ostream&, const Korisnik&) noexcept;
 	friend istream &operator>>(istream&, Korisnik&) noexcept;
 public:
+	Korisnik() = default;
 	Korisnik(std::string, std::string, std::string, string)noexcept(false);
 	/*std::string getIme() const noexcept;
 	std::string getPrezime() const noexcept;
 	std::string getPin() const noexcept;
 	string getKorisnickaGrupa() const noexcept;*/
-	void registracija(Korisnik*)noexcept(false);
+	void registracija()noexcept(false);
+	void prijava() noexcept(false);
 	~Korisnik() = default;
 
 protected:

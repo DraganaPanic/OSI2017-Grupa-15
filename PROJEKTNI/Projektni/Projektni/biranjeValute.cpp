@@ -12,7 +12,7 @@ void izaberiValutu()
 
 	{
 		std::getline(dat, glavnaValuta);
-		std::cout << "Glavna valuta je " << glavnaValuta;
+		std::cout << "Glavna valuta je " << glavnaValuta<< std::endl;
 		dat.close();
 	}
 	else

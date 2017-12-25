@@ -1,9 +1,9 @@
-#include "biranjeValute.h"
+#include "korisnik.h"
 #include <iostream>
 #include <string>
 
 
-void izaberiValutu()
+void Korisnik::izaberiValutu()
 
 {
 	std::string glavnaValuta;

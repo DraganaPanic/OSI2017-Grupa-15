@@ -1,7 +1,7 @@
-#include "Uplata.h"
+#include "korisnik.h"
 
 
-void uplataStranaValuta(std::string stranaValuta, double iznos) 
+void Korisnik::uplataStranaValuta(std::string stranaValuta, double iznos) 
 {
 	std::ifstream dat("valute.txt");
 	std::string glavnaValuta;

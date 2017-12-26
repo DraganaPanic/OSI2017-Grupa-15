@@ -14,13 +14,14 @@ class Korisnik
 	friend istream &operator>>(istream&, Korisnik&) noexcept;
 public:
 	Korisnik() = default;
-	Korisnik(std::string, std::string, std::string, string)noexcept(false);
+	Korisnik(std::string, std::string, std::string, string)noexcept;
 	/*std::string getIme() const noexcept;
 	std::string getPrezime() const noexcept;
 	std::string getPin() const noexcept;
 	string getKorisnickaGrupa() const noexcept;*/
-	void registracija()noexcept(false);
-	void prijava() noexcept(false);
+	Korisnik dodaj() noexcept(false);
+	void registracija(Korisnik*)noexcept(false);
+	void prijava(Korisnik*) noexcept(false);
 	~Korisnik() = default;
 
 protected:

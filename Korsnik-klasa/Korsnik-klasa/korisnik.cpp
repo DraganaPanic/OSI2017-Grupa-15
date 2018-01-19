@@ -4,7 +4,7 @@
 Korisnik::Korisnik(std::string ime, std::string prezime, std::string pin, string korisnickagrupa) : Ime(ime), Prezime(prezime), Pin(pin), korisnickaGrupa(korisnickagrupa)
 {
 }
-/*
+
 std::string Korisnik::getIme() const noexcept
 {
 return Ime;
@@ -22,7 +22,7 @@ return Pin;
 string Korisnik::getKorisnickaGrupa() const noexcept
 {
 return korisnickaGrupa;
-}*/
+}
 
 ostream& operator <<(ostream& out, const Korisnik& korisnik)
 {
@@ -42,29 +42,20 @@ std::istream& operator >> (istream& in, Korisnik& korisnik)
 	return in;
 }
 
-void Korisnik::registracija(Korisnik* p)
+
+void Korisnik::registracija(std::fstream os, Korisnik& other)
 {
-	if (p != 0) {
-		fstream dat("registrovani.txt", ios::app);
-
-
-		if (dat)
-		{
-
-			string ime, prezime, pin, korgr;
-
-			while (dat >> ime >> prezime >> pin >> korgr)
-			{
-				if (p->Ime == ime && p->Prezime == prezime)
-					cout << "This person already exists!\n";
-			}
-
-
-			dat << p->Ime << " " << p->Prezime << " " << p->Pin << " " << p->korisnickaGrupa << endl;
-			cout << "Registration succeed!\n" << endl;
-			dat.close();
-		}
+	if (does_person_exist(std::ifstream("registrovani.txt"), other) == 1)
+	{
+		std::cout << "This person already exists!"; std::ifstream("registrovani.txt").close();
 	}
+	else
+	{
+		os << other.getIme() << " " << other.getPrezime() << " " << other.getPin() << " " << other.getKorisnickaGrupa() << std::endl;
+		os.flush();
+		std::cout << "Registration succeeded!";
+	}
+
 }
 
 Korisnik Korisnik::dodaj()
@@ -93,8 +84,6 @@ Korisnik Korisnik::dodaj()
 bool Korisnik::is_number(string& src)
 {
 	const char *start = src.c_str();
-
-
 	errno = 0;
 	char *end;
 	long string_value = strtol(start, &end, 10);
@@ -110,4 +99,19 @@ bool Korisnik::is_number(string& src)
 	}
 
 	return true;
+}
+
+int Korisnik::does_person_exist(std::ifstream os, Korisnik& other)
+{
+	if (os)
+	{
+		string name, surname, pin, usergroup;
+		while (os >> name >> surname >> pin >> usergroup)
+		{
+			if (other.Ime == name && other.Prezime == surname)
+				return 1;
+		}os.close();
+		return 0;
+	}
+
 }

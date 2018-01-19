@@ -14,15 +14,18 @@ class Korisnik
 public:
 	Korisnik() = default;
 	Korisnik(std::string, std::string, std::string, std::string);
-	/*std::string getIme() const noexcept;
+	std::string getIme() const noexcept;
 	std::string getPrezime() const noexcept;
 	std::string getPin() const noexcept;
-	string getKorisnickaGrupa() const noexcept;*/
+	string getKorisnickaGrupa() const noexcept;
 	Korisnik dodaj();
-	void registracija(Korisnik*);
+	void nacinUplate();
+	void registracija(std::fstream , Korisnik& );
 	void prijava(Korisnik*);
 	virtual ~Korisnik() = default;
 	bool is_number(string& src);
+	int does_person_exist(std::ifstream, Korisnik&);
+	
 protected:
 	std::string Ime, Prezime, Pin, korisnickaGrupa;
 private:

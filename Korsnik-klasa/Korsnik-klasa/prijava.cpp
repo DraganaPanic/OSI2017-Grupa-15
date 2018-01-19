@@ -1,10 +1,10 @@
-#include "Header.h"
+#include "korisnik.h"
 
-
-void Korisnik::prijava(Korisnik *p)noexcept (false)
+void Korisnik::prijava(Korisnik *p)
 {
 	if (p != 0) {
-		fstream dat("registrovani.txt", ios::app);
+		int flag = 0;
+		ifstream dat("registrovani.txt");
 
 		if (dat)
 		{
@@ -13,16 +13,28 @@ void Korisnik::prijava(Korisnik *p)noexcept (false)
 			while (dat >> ime >> prezime >> pin >> korgr)
 			{
 				if (p->Ime == ime && p->Prezime == prezime && p->Pin == pin && p->korisnickaGrupa == korgr)
-					cout << "Account founded!\n" << endl;
-				dat.close();
-				break;
+				{
+					cout << "Account founded!\n" << endl; flag = 1;
+				}
 			}
+			if (flag == 1)
+			{
+				dat.close();
+			}
+			else
+			{
+				dat.close();
 
-			cout << "Account not found! You will be registered now!" << endl;
+				
+				cout << "Account not found! You will be registered now!" << endl;
+				p->registracija(std::fstream("registrovani.txt", ios::app),*p);
+				dat.close();
+			}
+			/*cout << "Account not found! You will be registered now!" << endl;
 
 			dat << p->Ime << " " << p->Prezime << " " << p->Pin << " " << p->korisnickaGrupa << endl;
 			cout << "Registration succeed!\n" << endl;
-			dat.close();
+			dat.close();*/
 		}
 	}
 }

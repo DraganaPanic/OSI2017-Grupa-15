@@ -1,0 +1,12 @@
+OSI Market Banja Luka
+Poslovnica: ETF
+	Maloprodajni racun	
+Kupac: boda
+Proizvod - kolicina - cijena - ukupno
+---------------------------------------
+mango  -    1  -    2  -    2
+---------------------------------------
+Ukupno: 2
+PDV: 0.290598
+Ukupno za placanje: 2.2906
+Datum:12/12/2000

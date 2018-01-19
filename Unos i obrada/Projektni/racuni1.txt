@@ -1,0 +1,12 @@
+OSI Market Banja Luka
+Poslovnica: ETF
+	Maloprodajni racun	
+Kupac: Milan
+Proizvod - kolicina - cijena - ukupno
+---------------------------------------
+Banane  -    2  -    2  -    4
+---------------------------------------
+Ukupno: 4
+PDV: 0
+Ukupno za placanje: 4
+Datum:24/10/2000
